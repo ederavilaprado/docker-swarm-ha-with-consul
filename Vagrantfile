@@ -11,24 +11,24 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.memory = 512
   end
 
-  config.vm.provision "shell" do |s|
-    path: "./scripts/provision/general.sh"
-  end
+  config.vm.provision "shell", path: "./scripts/provision/general.sh"
 
   (1..3).each do |i|
     config.vm.define "server#{i}" do |node|
       node.vm.hostname = "server#{i}.example.com"
       node.vm.network "private_network", ip: "192.0.2.#{i+1}"
+      node.vm.provision "shell", path: "./scripts/provision/docker.sh"
     end
   end
 
-  config.vm.define "router" do |n1|
-    n1.vm.hostname = "router.example.com"
-    n1.vm.network "private_network", ip: "192.0.2.40"
+  config.vm.define "router" do |n|
+    n.vm.hostname = "router.example.com"
+    n.vm.network "private_network", ip: "192.0.2.40"
   end
 
-  config.vm.define "dockernode01" do |n2|
-      n1.vm.hostname = "dockernode01.example.com"
-      n1.vm.network "private_network", ip: "192.0.2.50"
+  config.vm.define "dockernode01" do |n|
+    n.vm.hostname = "dockernode01.example.com"
+    n.vm.network "private_network", ip: "192.0.2.50"
+    n.vm.provision "shell", path: "./scripts/provision/docker.sh"
   end
 end
