@@ -46,3 +46,45 @@ Containers: 2
     └ Error: (none)
     └ UpdatedAt: 2016-03-23T17:33:07Z
 ```
+
+## Installing "GO"
+
+Needs to add this to the scripts
+
+```bash
+$ cd ~
+$ wget https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz
+$ tar -xvf go1.6.linux-amd64.tar.gz
+$ mv go /usr/local/
+$ rm go1.6.linux-amd64.tar.gz
+$ chown -R vagrant:vagrant /usr/local/go
+$ mkdir -p /home/vagrant/workspace/go/src
+echo "export PATH=\$PATH:/usr/local/go/bin" >> /home/vagrant/.profile
+echo "export GOPATH=\$HOME/workspace/go" >> /home/vagrant/.profile
+```
+
+
+## Creating build
+
+**Options to test**
+
+- Buildstep by progrium (https://github.com/progrium/buildstep)
+- https://www.packer.io
+- https://github.com/gliderlabs/herokuish
+- https://blog.docker.com/2013/05/heroku-buildpacks-on-docker/
+- http://blog.tutum.co/2014/04/10/creating-a-docker-image-from-your-code/
+- https://github.com/openshift/source-to-image
+
+
+
+
+
+
+
+
+
+
+
+
+
+
