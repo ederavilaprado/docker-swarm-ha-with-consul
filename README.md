@@ -59,29 +59,14 @@ $ mv go /usr/local/
 $ rm go1.6.linux-amd64.tar.gz
 $ chown -R vagrant:vagrant /usr/local/go
 $ mkdir -p /home/vagrant/workspace/go/src
-echo "export PATH=\$PATH:/usr/local/go/bin" >> /home/vagrant/.profile
-echo "export GOPATH=\$HOME/workspace/go" >> /home/vagrant/.profile
+# Não é o local certo (menos ainda seguro), porem resolve pra ambiente dev
+echo "export PATH=\$PATH:/usr/local/go/bin" >> /home/vagrant/.bashrc
+echo "export GOPATH=\$HOME/workspace/go" >> /home/vagrant/.bashrc
 ```
-
 
 ## Creating build
 
-**Options to test**
-
-- Buildstep by progrium (https://github.com/progrium/buildstep)
-- https://www.packer.io
-- https://github.com/gliderlabs/herokuish
-- https://blog.docker.com/2013/05/heroku-buildpacks-on-docker/
-- http://blog.tutum.co/2014/04/10/creating-a-docker-image-from-your-code/
-- https://github.com/openshift/source-to-image
-
-
-
-
-
-
-
-
+https://hub.docker.com/r/tutum/buildstep/
 
 
 
